@@ -1,0 +1,11 @@
+
+The main purpose of the web application "address book" has to add, view, edit and delete a simplified handbook addresses.
+On the main page are fields used in operations and a table to display the current state of the directory.
+The project has a three-tier model is selected as the most appropriate:
+- easily expandable by adding new entities
+- have a loose coupling (possible substitution of testing and at different levels)
+Also using Spring Framework gives us a lot of convenient functionality requirements and facilitating project creation processes. 
+Hibernate ORM is explained by the use of convenience with objects in the code - as a model in the database.
+Maven used to build the project.
+Resin Java application server used to deploy the application selected, it was chosen because one of which supports java 8(tomcat not to supports)
+It is well suited for the task of a relational database mySql.
