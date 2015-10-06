@@ -11,6 +11,13 @@ public class Phone {
     private Integer id;
     private String value;
 
+    public Phone() {
+    }
+
+    public Phone(String phone) {
+        this.value = phone;
+    }
+
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)

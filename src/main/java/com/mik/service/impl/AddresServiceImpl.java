@@ -12,28 +12,29 @@ import java.util.List;
 /**
  * Created by mikitjuk on 02.10.15.
  */
-@Service
+@Service("adressService")
+@Transactional("transactionManagerMySQL")
 public class AddresServiceImpl implements AddressService {
 
     @Autowired
     private AddressDao addressDao;
 
-    @Transactional
+    @Override
     public void create(Address address) {
         addressDao.create(address);
     }
 
-    @Transactional
+    @Override
     public Address read(Integer id) {
         return addressDao.read(id);
     }
 
-    @Transactional
+    @Override
     public void update(Address address) {
         addressDao.update(address);
     }
 
-    @Transactional
+    @Override
     public void delete(Address address) {
         addressDao.delete(address);
     }

@@ -9,10 +9,7 @@ import javax.persistence.*;
 @Table(name = "address")
 public class Address {
     private Integer id;
-    private Building buildingByIdBuild;
-    private Street streetByIdStreet;
-    private City cityByIdCity;
-    private Country countryByIdCountry;
+    private AddressComplex addressComplex;
     private Phone phoneByIdPhone;
 
     @Id
@@ -27,43 +24,13 @@ public class Address {
     }
 
     @ManyToOne
-    @JoinColumn(name = "id_build", referencedColumnName = "id", nullable = false)
-    public Building getBuildingByIdBuild() {
-        return buildingByIdBuild;
+    @JoinColumn(name = "id_address_complex", referencedColumnName = "id", nullable = false)
+    public AddressComplex getAddressComplex() {
+        return addressComplex;
     }
 
-    public void setBuildingByIdBuild(Building buildingByIdBuild) {
-        this.buildingByIdBuild = buildingByIdBuild;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "id_street", referencedColumnName = "id", nullable = false)
-    public Street getStreetByIdStreet() {
-        return streetByIdStreet;
-    }
-
-    public void setStreetByIdStreet(Street streetByIdStreet) {
-        this.streetByIdStreet = streetByIdStreet;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "id_city", referencedColumnName = "id", nullable = false)
-    public City getCityByIdCity() {
-        return cityByIdCity;
-    }
-
-    public void setCityByIdCity(City cityByIdCity) {
-        this.cityByIdCity = cityByIdCity;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "id_country", referencedColumnName = "id", nullable = false)
-    public Country getCountryByIdCountry() {
-        return countryByIdCountry;
-    }
-
-    public void setCountryByIdCountry(Country countryByIdCountry) {
-        this.countryByIdCountry = countryByIdCountry;
+    public void setAddressComplex(AddressComplex addressComplex) {
+        this.addressComplex = addressComplex;
     }
 
     @ManyToOne
@@ -76,36 +43,5 @@ public class Address {
         this.phoneByIdPhone = phoneByIdPhone;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
 
-        Address address = (Address) o;
-
-        if (buildingByIdBuild != null ? !buildingByIdBuild.equals(address.buildingByIdBuild) : address.buildingByIdBuild != null)
-            return false;
-        if (cityByIdCity != null ? !cityByIdCity.equals(address.cityByIdCity) : address.cityByIdCity != null)
-            return false;
-        if (countryByIdCountry != null ? !countryByIdCountry.equals(address.countryByIdCountry) : address.countryByIdCountry != null)
-            return false;
-        if (id != null ? !id.equals(address.id) : address.id != null) return false;
-        if (phoneByIdPhone != null ? !phoneByIdPhone.equals(address.phoneByIdPhone) : address.phoneByIdPhone != null)
-            return false;
-        if (streetByIdStreet != null ? !streetByIdStreet.equals(address.streetByIdStreet) : address.streetByIdStreet != null)
-            return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (buildingByIdBuild != null ? buildingByIdBuild.hashCode() : 0);
-        result = 31 * result + (streetByIdStreet != null ? streetByIdStreet.hashCode() : 0);
-        result = 31 * result + (cityByIdCity != null ? cityByIdCity.hashCode() : 0);
-        result = 31 * result + (countryByIdCountry != null ? countryByIdCountry.hashCode() : 0);
-        result = 31 * result + (phoneByIdPhone != null ? phoneByIdPhone.hashCode() : 0);
-        return result;
-    }
 }
